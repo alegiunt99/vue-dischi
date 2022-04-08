@@ -1,31 +1,28 @@
 <template>
   <div id="app">
+    <SpotyHeader />
+    <SongsContainer />
   </div>
 </template>
 
 <script>
+import SpotyHeader from '@/components/SpotyHeader.vue';
 
+import SongsContainer from '@/components/SongsContainer.vue'
 
 export default {
   name: 'App',
   components: {
    
+    SpotyHeader,
+
+    SongsContainer
   }
 }
 </script>
 
 <style lang="scss">
 
-@import '@/style/variables';
-
 @import '@/style/style';
 
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
