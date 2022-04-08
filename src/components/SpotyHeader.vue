@@ -2,7 +2,7 @@
   <header class="container-fluid">
       <div class="row">
           <div class="col-2">
-              <img src="" alt="">
+              <img src="@/assets/spotify-logo.png" alt="">
           </div>
       </div>
 
@@ -18,5 +18,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+    @import '@/style/variables';
+
+    header{
+        background-color: $header-color;
+        .col-2{
+            padding: 20px 5px;
+            img{
+                width: 35%;
+            }
+        }
+    }
+    
 
 </style>
