@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SpotyHeader />
-    <SongsContainer />
+    <SongsContainer :songs='urlSongs'/>
   </div>
 </template>
 
@@ -17,6 +17,16 @@ export default {
     SpotyHeader,
 
     SongsContainer
+  },
+
+  data(){
+
+    return {
+
+      urlSongs: 'https://flynn.boolean.careers/exercises/api/array/music',
+    
+    }
+
   }
 }
 </script>
