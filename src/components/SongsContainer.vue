@@ -57,5 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .row{
+        margin: 89px 0px;
+    }
 </style>
