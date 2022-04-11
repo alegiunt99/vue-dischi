@@ -7,7 +7,7 @@
 
     <!-- creo le card delle canzoni  -->
     <div v-if="songsGroup.length > 0" class="row" id="songs-container">
-          <SongCard  v-for="(item, index) in songsGroup" :key="index" :song="item" class="col col-md-6 col-lg-3"/>
+          <SongCard  v-for="(item, index) in filteredList" :key="index" :song="item" class="col col-md-6 col-lg-3"/>
     </div>
   </main>
 </template>
@@ -43,6 +43,31 @@ export default {
         MusicType
     },
 
+    computed:{
+
+        filteredList(){
+
+            if(this.genreSelected.length === 0){
+
+                return this.songsGroup;
+
+            } else (this.genreSelected.length > 0);{
+
+                return this.songsGroup.filter( (item) => {
+
+                item.genre.toLowerCase().includes(this.genreSelected.toLowerCase());
+    
+            })
+
+            }
+
+            
+            
+        },
+
+
+    },
+
     mounted(){
         this.loadData();
     },
@@ -56,28 +81,14 @@ export default {
 
                         this.songsGroup = risultato.data.response;
 
-                        console.log(this.songsGroup);
+                        //console.log(this.songsGroup);
 
                     }
                 }
             )
         },
 
-        /*filteredList(){
-
-            if(this.genreSelected.length === 0){
-
-                return this.songsGroup;
-
-            }
-
-            this.songsGroup.filter( item => {
-
-              return  item.genre.toLowerCase().includes(this.genreSelected.toLowerCase())
-
-            })
-        },*/
-
+        
         filterByGenre(genre){
 
             this.genreSelected = genre
