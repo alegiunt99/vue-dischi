@@ -2,7 +2,7 @@
   <main class="container">
       <!-- aggiungo una select con i generi di musica -->
     <div class="row" id="songs-genre">
-        <MusicType />
+        <MusicType @genre="filterByGenre" class="col-1"/>
     </div>
 
     <!-- creo le card delle canzoni  -->
@@ -28,6 +28,8 @@ export default {
 
         return {
             songsGroup: [],
+
+            genreSelected: ''
         }
 
     },
@@ -37,8 +39,8 @@ export default {
     },
 
     components:{
-        MusicType, 
-        SongCard
+        SongCard,
+        MusicType
     },
 
     mounted(){
@@ -59,6 +61,29 @@ export default {
                     }
                 }
             )
+        },
+
+        /*filteredList(){
+
+            if(this.genreSelected.length === 0){
+
+                return this.songsGroup;
+
+            }
+
+            this.songsGroup.filter( item => {
+
+              return  item.genre.toLowerCase().includes(this.genreSelected.toLowerCase())
+
+            })
+        },*/
+
+        filterByGenre(genre){
+
+            this.genreSelected = genre
+
+            console.log('il GENERE SELEZIONATO è', this.genreSelected);
+
         }
     }
 

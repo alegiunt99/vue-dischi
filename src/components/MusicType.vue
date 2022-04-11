@@ -1,5 +1,5 @@
 <template>
-    <select name="songs-type" class="col-1" >
+    <select @change="selectOption($event)">
         <option value="">All</option>
         <option value="Jazz">Jazz</option>
         <option value="Metal">Metal</option>
@@ -13,8 +13,28 @@ export default {
 
     name: 'MusicType',
 
+    data(){
+
+        return {
+
+            selectedOption: '',
+        }
+
+    },
+
     props:{
-    }
+    },
+
+    methods: {
+        selectOption(event){
+
+            this.selectedOption = event.target.value;
+
+            console.log('Il genere selezionato è:', this.selectedOption)
+
+            this.$emit('genre', this.selectedOption);
+        }
+    },
 
 }
 </script>
