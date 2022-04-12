@@ -47,15 +47,15 @@ export default {
 
         filteredList(){
 
-            if(this.genreSelected.length === 0){
+            if(this.genreSelected === ''){
 
                 return this.songsGroup;
 
-            } else (this.genreSelected.length > 0);{
+            } else (this.genreSelected !== '');{
 
-                return this.songsGroup.filter( (item) => {
+                return this.songsGroup.filter( song => {
 
-                item.genre.toLowerCase().includes(this.genreSelected.toLowerCase());
+                return song.genre.includes(this.genreSelected);
     
             })
 
